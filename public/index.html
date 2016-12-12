@@ -1,27 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="FishApp">
 
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" href="">
+	<title>The FlyBox</title>
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/bower_components/bootstrap-material-design/dist/bootstrap-material-design.css">
 	<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand class=" nav-item "" href="#">The FlyBox</a>
+			</div>
+
+			<ul class="nav nav-pills navbar-left">
+				<li class="nav-item"><a class="nav-link" href="#/">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="#/about">About</a></li>
+				<li class="nav-item"><a class="nav-link" href="#/weather">Weather</a></li>
+				<li class="nav-item"><a class="nav-link" href="#/blog">Blog</a></li>
+			</ul>
+
+			<ul class="nav nav-pills navbar-right">
+				<li ng-hide="UserService.isAuthenticated()" class="nav-item"><a href="#/login" class="nav-link">Login</a></li>
+				<li ng-hide="UserService.isAuthenticated()" class="nav-item"><a href="#/signup" class="nav-link">Signup</a></li>
+				<li ng-show="UserService.isAuthenticated()" class="nav-item"><a href="#/product" class="nav-link">Products</a></li>
+				<li ng-show="UserService.isAuthenticated()" class="nav-item"><a href="#/logout" class="nav-link">Logout</a></li>
+				<li ng-show="UserService.isAuthenticated()" class="nav-item">
+					<a href="#/profile" class="nav-link"><i class="material-icons">account_box</i></a></li>
+			</ul>
+
+		</div>
+	</nav>
+
+	<div ng-view class="container"></div>
+
+
+
 	<!--  Libraries & Frameworks  -->
-	<script src=""></script>
-	<script src=""></script>
-	<script src=""></script>
-	<script src=""></script>
+	<script src="assets/bower_components/jquery/dist/jquery.js"></script>
+	<script src="assets/bower_components/tether/dist/js/tether.js"></script>
+
+	<script src="assets/bower_components/angular/angular.js"></script>
+	<script src="assets/bower_components/angular-route/angular-route.js"></script>
+	<script src="assets/bower_components/angular-animate/angular-animate.js"></script>
+	<!--	<script src="assets/bower_components/ui.bootstrap/index.js"></script>-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.js"></script>
+	<script src="assets/bower_components/MDBootstrap/js/bootstrap.js"></script>
+	<script src="assets/bower_components/bootstrap-material-design/js/bootstrapMaterialDesign.js"></script>
+	<script src="assets/bower_components/angularLocalStorage/dist/angularLocalStorage.min.js"></script>
+
 
 	<!--  Script Pages  -->
 
 	<script src="app.js"></script>
-	<script src=".js"></script>
-	<script src=".js"></script>
-	<script src=".js"></script>
+	<script src="auth/auth.js"></script>
+
+
 </body>
 
 </html>
