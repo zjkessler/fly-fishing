@@ -6,6 +6,7 @@ var config = require("../config");
 
 authRouter.post("/signup", function (req, res) {
 	var user = new User(req.body);
+	console.log(user)
 	user.save(function (err, newUser) {
 		if (err) return res.status(500).send(err);
 		return res.send({

@@ -1,0 +1,17 @@
+<div class="row">
+	<div id="reportHeader" class="text-center well col-sm-offset-4 col-sm-4">
+		<h3>Flyfishing Report</h3>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-offset-1 col-2-sm">
+		<div>
+			<button id="reportButton" class="btn btn-raised btn-warning" ng-click="refreshReport()">Refresh Fishing Report</button>
+		</div>
+	</div>
+	<div class="col-sm-offset-1 col-sm-7 well" ng-repeat="report in Report">
+		<h1>{{ report.title }}</h1>
+		<p>{{ report.body}}</p>
+	</div>
+</div>

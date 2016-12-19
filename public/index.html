@@ -13,53 +13,44 @@
 
 <body>
 
-	<nav class="navbar navbar-inverse">
-		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand class=" nav-item "" href="#">The FlyBox</a>
-			</div>
+	<navbar></navbar>
 
-			<ul class="nav nav-pills navbar-left">
-				<li class="nav-item"><a class="nav-link" href="#/">Home</a></li>
-				<li class="nav-item"><a class="nav-link" href="#/about">About</a></li>
-				<li class="nav-item"><a class="nav-link" href="#/weather">Weather</a></li>
-				<li class="nav-item"><a class="nav-link" href="#/blog">Blog</a></li>
-			</ul>
-
-			<ul class="nav nav-pills navbar-right">
-				<li ng-hide="UserService.isAuthenticated()" class="nav-item"><a href="#/login" class="nav-link">Login</a></li>
-				<li ng-hide="UserService.isAuthenticated()" class="nav-item"><a href="#/signup" class="nav-link">Signup</a></li>
-				<li ng-show="UserService.isAuthenticated()" class="nav-item"><a href="#/product" class="nav-link">Products</a></li>
-				<li ng-show="UserService.isAuthenticated()" class="nav-item"><a href="#/logout" class="nav-link">Logout</a></li>
-				<li ng-show="UserService.isAuthenticated()" class="nav-item">
-					<a href="#/profile" class="nav-link"><i class="material-icons">account_box</i></a></li>
-			</ul>
-
-		</div>
-	</nav>
-
-	<div ng-view class="container"></div>
-
+	<div class="container-fluid">
+		<div ng-view></div>
+	</div>
 
 
 	<!--  Libraries & Frameworks  -->
 	<script src="assets/bower_components/jquery/dist/jquery.js"></script>
 	<script src="assets/bower_components/tether/dist/js/tether.js"></script>
-
 	<script src="assets/bower_components/angular/angular.js"></script>
 	<script src="assets/bower_components/angular-route/angular-route.js"></script>
 	<script src="assets/bower_components/angular-animate/angular-animate.js"></script>
-	<!--	<script src="assets/bower_components/ui.bootstrap/index.js"></script>-->
+	<script src="assets/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.js"></script>
 	<script src="assets/bower_components/MDBootstrap/js/bootstrap.js"></script>
 	<script src="assets/bower_components/bootstrap-material-design/js/bootstrapMaterialDesign.js"></script>
 	<script src="assets/bower_components/angularLocalStorage/dist/angularLocalStorage.min.js"></script>
+	1
+	<script src="http://yui.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
+
 
 
 	<!--  Script Pages  -->
 
 	<script src="app.js"></script>
 	<script src="auth/auth.js"></script>
+	<script src="nav/nav.js"></script>
+	<script src="auth/login/login.js"></script>
+	<script src="auth/logout/logout.js"></script>
+	<script src="auth/signup/signup.js"></script>
+	<script src="profile/profileCtrl.js"></script>
+	<script src="blog/blogCtrl.js"></script>
+	<script src="about/aboutCtrl.js"></script>
+	<script src="weather/weatherCtrl.js"></script>
+	<script src="report/reportCtrl.js"></script>
+
+
 
 
 </body>

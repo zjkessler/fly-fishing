@@ -1,12 +1,13 @@
 var app = angular.module("Auth", ["ngStorage"])
-	app.config(["$routeProvider", function ($routeProvider) {
+
+app.config(["$routeProvider", function ($routeProvider) {
 	$routeProvider
 		.when("/signup", {
-			templateUrl: "components/auth/signup/signup.html",
+			templateUrl: "auth/signup/signup.html",
 			controller: "SignupCtrl"
 		})
 		.when("/login", {
-			templateUrl: "components/auth/login/login.html",
+			templateUrl: "auth/login/login.html",
 			controller: "LoginCtrl"
 		})
 		.when("/logout", {
