@@ -16,7 +16,7 @@ app.use( express.static( path.join( __dirname, "public" ) ) );
 app.use( logger( "dev" ) );
 
 mongoose.Promise = global.Promise;
-mongoose.connect( 'mongodb://heroku_hd3zdwkl:qd57v5tgc35pfbvrp3rlgaqjhc@ds117899.mlab.com:17899/heroku_hd3zdwkl', function ( err ) {
+mongoose.connect( process.env.MONGOLAB_URI || config.database, function ( err ) {
     if ( err ) throw err;
     console.log( "Successully connected to the database" );
 } );
