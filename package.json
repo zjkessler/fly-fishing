@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "node server.js",
+    "start": "gulp"
   },
   "repository": {
     "type": "git",
@@ -14,12 +14,15 @@
   "author": "Zach Kessler",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "body-parser": "^1.15.2",
     "cheerio": "^0.22.0",
     "cors": "^2.8.1",
     "express": "^4.14.0",
     "express-jwt": "^5.1.0",
     "feedly": "^0.1.6",
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.4",
     "jsonwebtoken": "^7.2.1",
     "mongoose": "^4.7.2",
     "morgan": "^1.7.0",
