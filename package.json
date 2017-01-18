@@ -5,8 +5,7 @@
     "main": "server.js",
     "scripts": {
         "test": "node server.js",
-        "start": "gulp",
-
+        "start": "gulp"
     },
     "repository": {
         "type": "git",
