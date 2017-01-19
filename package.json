@@ -1,38 +1,39 @@
 {
-  "name": "fly-fishing",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "fly-fishing"
-  },
-  "author": "Zach Kessler",
-  "license": "ISC",
-  "dependencies": {
-    "bcrypt": "^1.0.2",
-    "body-parser": "^1.15.2",
-    "bson": "^1.0.4",
-    "cheerio": "^0.22.0",
-    "cors": "^2.8.1",
-    "express": "^4.14.0",
-    "express-jwt": "^5.1.0",
-    "feedly": "^0.1.6",
-    "gulp": "^3.9.1",
-    "gulp-jshint": "^2.0.4",
-    "jsonwebtoken": "^7.2.1",
-    "mongoose": "^4.7.2",
-    "morgan": "^1.7.0",
-    "nodemon": "^1.11.0",
-    "path": "^0.12.7",
-    "port": "^0.8.1",
-    "request": "^2.79.0"
-  },
-  "devDependencies": {
-    "gulp-jshint": "^2.0.4",
-    "jshint": "^2.9.4"
-  }
+    "name": "fly-fishing",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "heroku-postbuild": "npm run build",
+        "prebuild": "npm run build:clean"
+    },
+    "repository": {
+        "type": "git",
+        "url": "fly-fishing"
+    },
+    "author": "Zach Kessler",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^1.0.2",
+        "body-parser": "^1.15.2",
+        "cheerio": "^0.22.0",
+        "cors": "^2.8.1",
+        "express": "^4.14.0",
+        "express-jwt": "^5.1.0",
+        "feedly": "^0.1.6",
+        "gulp": "^3.9.1",
+        "gulp-jshint": "^2.0.4",
+        "jsonwebtoken": "^7.2.1",
+        "mongoose": "^4.7.2",
+        "morgan": "^1.7.0",
+        "nodemon": "^1.11.0",
+        "path": "^0.12.7",
+        "port": "^0.8.1",
+        "request": "^2.79.0"
+    },
+    "devDependencies": {
+        "gulp-jshint": "^2.0.4",
+        "jshint": "^2.9.4"
+    }
 }
