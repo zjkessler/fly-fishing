@@ -36,10 +36,3 @@
         "jshint": "^2.9.4"
     }
 }
-est ": " ^ 2.79 .0 "
-},
-"devDependencies": {
-    "gulp-jshint": "^2.0.4",
-    "jshint": "^2.9.4"
-}
-}
