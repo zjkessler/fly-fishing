@@ -4,8 +4,8 @@ app.controller( "BlogCtrl", [ "$scope", "BlogService", "$sce", function ( $scope
 
     $scope.searchResults = [];
     $scope.blogList = [];
-    $scope.blogSample = [];
-    $scope.blogRead = []
+    $scope.articleList = [];
+    $scope.aticleRead = []
 
     //search for feeds
     $scope.searchRSS = function ( query ) {
@@ -35,6 +35,14 @@ app.controller( "BlogCtrl", [ "$scope", "BlogService", "$sce", function ( $scope
             } )
     }();
 
+    //get individual blog article list for display
+    $scope.readBlog = function ( blogListing ) {
+        BlogService.getOneBlog( blogListing )
+            .then( function ( response ) {
+
+            } )
+    }
+
     //get individual article for display
     //	$scope.readBlog = function(blogListing){
     //		BlogService.getOneBlog(blogListing)
@@ -43,8 +51,7 @@ app.controller( "BlogCtrl", [ "$scope", "BlogService", "$sce", function ( $scope
     //		})
     //	}
 
-
-    //delete feed from db
+    //delete individual blog from db
     $scope.deleteBlog = function ( item, index ) {
         console.log( item )
         BlogService.removeBlog( item )
