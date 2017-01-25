@@ -12,41 +12,42 @@
 
 		</form>
 	</div>
+</div>
 
-
-	<div class="row">
-		<div class="col-sm-3">
-			<div class="well" ng-if="blogList.length">
-				<div ng-repeat="item in blogList track by $index">
-					<button class="btn btn-sm btn-raised btn-primary" ng-click="showBlog(item)">{{item.title}}</button>
-					<button class="btn btn-warning btn-sm pull-right" ng-click="deleteBlog(item, index)"><i class="material-icons">delete_forever</i></button>
+<div class="row">
+	<div class="col-sm-3">
+		<div class="well" ng-if="blogList.length">
+			<div ng-repeat="item in blogList track by $index">
+				<div class="row">
+					<button class="col-sm-9 btn btn-sm btn-raised btn-primary" ng-click="showBlog(item)">{{item.title}}</button>
+					<button class="col-sm-1 btn btn-warning btn-sm center-text" ng-click="deleteBlog(item, index)"><i class="material-icons">delete_forever</i></button>
 				</div>
 			</div>
 		</div>
-
-		<div class="col-sm-8">
-			<div class="well" ng-if="searchResults.length">
-				<h4>Search Results</h4>
-				<div class="list-group" ng-repeat="item in searchResults">
-					<a class="list-group-item">
-						<div class="center-text">
-							<h4>{{ item.title }}</h4>
-							<p>{{ item.description }}</p>
-							<button ng-click="addBlog(item)" class="pull-right btn btn-sm btn-raised btn-primary"><i class=" material-icons">file_download</i></button>
-						</div>
-					</a>
-				</div>
-				<div ng-repeat="blog in blogSample">
-					<a class="list-group-item" ng-click="readBlog(blog)">
-						<div>{{blog}}</div>
-						<button class="btn btn-raised btn-warning"></button>
-					</a>
-				</div>
-				<div ng-repeat="blog in blogRead"></div>
-			</div>
-		</div>
-
 	</div>
-	/div>
-
+	<div class="col-sm-8">
+		<div class="well" ng-if="searchResults.length">
+			<h4>Search Results</h4>
+			<div class="list-group" ng-repeat="item in searchResults">
+				<a class="list-group-item">
+					<div class="row">
+						<div class="center-text">
+							<div class="col-sm-10">
+								<h4>{{ item.title }}</h4>
+								<p>{{ item.description }}</p>
+							</div>
+							<button ng-click="addBlog(item)" class="col-sm-1 btn btn-sm btn-raised btn-primary"><i class=" material-icons">file_download</i></button>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div ng-repeat="blog in blogSample">
+				<a class="list-group-item" ng-click="readBlog(blog)">
+					<div>{{blog}}</div>
+					<button class="btn btn-raised btn-warning"></button>
+				</a>
+			</div>
+			<div ng-repeat="blog in blogRead"></div>
+		</div>
+	</div>
 </div>
