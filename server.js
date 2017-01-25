@@ -10,7 +10,7 @@ var expressJwt = require( "express-jwt" );
 var request = require( 'request' );
 var port = process.env.PORT || 8000;
 
-var uri = mongodb: heroku_55jtlxxr: mprince8432 @ds127949.mlab.com: 27949 / heroku_55jtlxxr
+var uri = 'mongodb: heroku_55jtlxxr: mprince8432 @ds127949.mlab.com: 27949 / heroku_55jtlxxr'
 
 app.use( cors() );
 app.use( bodyParser.json() );
