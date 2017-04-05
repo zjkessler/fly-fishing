@@ -21,8 +21,6 @@
     "express": "^4.14.0",
     "express-jwt": "^5.1.0",
     "feedly": "^0.1.6",
-    "gulp": "^3.9.1",
-    "gulp-jshint": "^2.0.4",
     "jsonwebtoken": "^7.2.1",
     "mongoose": "^4.7.2",
     "morgan": "^1.7.0",
@@ -37,8 +35,10 @@
     "gulp-jscs": "^4.0.0",
     "gulp-jshint": "^2.0.4",
     "gulp-load-plugins": "^1.5.0",
+    "gulp-util": "^3.0.8",
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
-    "wiredep": "^4.0.0"
+    "wiredep": "^4.0.0",
+    "yargs": "^7.0.2"
   }
 }

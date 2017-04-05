@@ -1,5 +1,6 @@
+'use strict';
+
 module.exports = function () {
-	'use strict';
 
 	var client = '.src/client/';
 	var clientApp = client + 'app/';
@@ -10,13 +11,22 @@ module.exports = function () {
 				'./*js'],
 		client: client,
 		index: client + 'index.html',
-		js: [clientApp + '**/*.module.js', clientApp + '**/*.js']
+		js: [clientApp + '**/*.module.js', clientApp + '**/*.js'],
+
+
+		//	Bower and Npm Locations
+		bower: {
+			json: require('./bower.json'),
+			directory: './bower_components/',
+			ignorePath: '../..'
+		}
 	};
 
-	config.getWiredepDefaultOPtions = function () {
+	config.getWiredepDefaultOptions = function () {
 		var options = {
 			bowerJson: config.bower.json,
 			directory: config.bower.directory,
+			ignorePath: config.bower.ignorePath
 		};
 		return options;
 	};
