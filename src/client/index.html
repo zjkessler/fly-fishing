@@ -5,16 +5,18 @@
 	<meta charset="UTF-8">
 	<title>The FlyBox</title>
 	<base href="/">
-	<!--	bower:css-->
-	<!--endbower-->
-	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-	<link rel="stylesheet" href="assets/bower_components/angular-material/angular-material.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+	<!-- bower:css -->
+	<link rel="stylesheet" href="/bower_components/angular-material/angular-material.css" />
+	<link rel="stylesheet" href="/bower_components/md-icons/dist/material.css" />
+	<link rel="stylesheet" href="/bower_components/angular-material-icons/angular-material-icons.css" />
+	<!-- endbower -->
 
-	<!--inject:css-->
-	<!--endinject-->
-	<link rel="stylesheet" type="text/css" href="assets/styles.css">
+	<!-- inject:css -->
+	<link rel="stylesheet" href="/src/client/assets/styles.css">
+	<!-- endinject -->
+
+<!--<link rel="stylesheet" type="text/css" href="assets/styles.css">-->
 
 </head>
 
@@ -27,39 +29,37 @@
 
 
 
-	<!--  Libraries & Frameworks  -->
-	<!--bower:js-->
-	<!--endbower-->
-	<script src="assets/bower_components/jquery/dist/jquery.js"></script>
-	<script src="assets/bower_components/tether/dist/js/tether.js"></script>
-	<script src="assets/bower_components/angular/angular.js"></script>
-	<script src="assets/bower_components/angular-animate/angular-animate.js"></script>
-	<script src="assets/bower_components/angular-aria/angular-aria.js"></script>
-	<script src="assets/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.js"></script>
-	<script src="assets/bower_components/angularLocalStorage/dist/angularLocalStorage.min.js"></script>
-	<script src="http://yui.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
-	<script src="assets/bower_components/angular-messages/angular-messages.min.js"></script>
-	<script src="assets/bower_components/angular-material/angular-material.js"></script>
-	<script src="assets/bower_components/angular-material-icons/angular-material-icons.js"></script>
-	<script src="assets/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+	<!-- bower:js -->
+	<script src="/bower_components/jquery/dist/jquery.js"></script>
+	<script src="/bower_components/angular/angular.js"></script>
+	<script src="/bower_components/angular-animate/angular-animate.js"></script>
+	<script src="/bower_components/angular-aria/angular-aria.js"></script>
+	<script src="/bower_components/angular-messages/angular-messages.js"></script>
+	<script src="/bower_components/angular-material/angular-material.js"></script>
+	<script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="/bower_components/angular-cookie/angular-cookie.js"></script>
+	<script src="/bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+	<script src="/bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+	<!-- endbower -->
 
 
 
-	<!--  Script Pages  -->
-	<!--inject:.js-->
-	<!--endinject-->
-	<script src="app.js"></script>
-	<script src="auth/auth.js"></script>
-	<script src="shared/nav/navCtrl.js"></script>
-	<script src="auth/login/login.js"></script>
-	<script src="auth/logout/logout.js"></script>
-	<script src="auth/signup/signup.js"></script>
-	<script src="components/profile/profileCtrl.js"></script>
-	<script src="components/blog/blogCtrl.js"></script>
-	<script src="components/about/aboutCtrl.js"></script>
-	<script src="components/weather/weatherCtrl.js"></script>
-	<script src="components/report/reportCtrl.js"></script>
+
+	<!-- inject:js -->
+	<script src="/src/client/app.js"></script>
+	<script src="/src/client/components/about/aboutCtrl.js"></script>
+	<script src="/src/client/components/auth/auth.js"></script>
+	<script src="/src/client/components/blog/blogCtrl.js"></script>
+	<script src="/src/client/components/profile/profileCtrl.js"></script>
+	<script src="/src/client/components/report/reportCtrl.js"></script>
+	<script src="/src/client/components/weather/weatherCtrl.js"></script>
+	<script src="/src/client/shared/nav/navCtrl.js"></script>
+	<script src="/src/client/shared/nav/navSvc.js"></script>
+	<script src="/src/client/components/auth/login/login.js"></script>
+	<script src="/src/client/components/auth/logout/logout.js"></script>
+	<script src="/src/client/components/auth/signup/signup.js"></script>
+	<!-- endinject -->
 
 
 
