@@ -1,0 +1,19 @@
+<md-card md-padding>
+	<div>
+		<div id="reportHeader" flex="25">
+			<h3>Flyfishing Report</h3>
+		</div>
+	</div>
+
+	<div layout="row">
+		<div flex>
+			<div>
+				<md-button id="reportButton" class="btn btn-raised btn-warning" ng-click="refreshReport()">Refresh Fishing Report</md-button>
+			</div>
+		</div>
+		<div flex="80" ng-repeat="report in Report">
+			<h1>{{ report.title }}</h1>
+			<p>{{ report.body}}</p>
+		</div>
+	</div>
+</md-card>
