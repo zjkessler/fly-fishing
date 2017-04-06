@@ -1,4 +1,5 @@
 'use strict';
-var app = angular.module("FishApp");
-
-app.
+//'use strict';
+//var app = angular.module("FishApp");
+//
+//app.

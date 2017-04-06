@@ -13,7 +13,7 @@ var port = process.env.PORT || 8000;
 var uri = 'mongodb: heroku_55jtlxxr: mprince8432 @ds127949.mlab.com: 27949 / heroku_55jtlxxr';
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../client')));
 app.use(logger('dev'));
 
 mongoose.Promise = global.Promise;

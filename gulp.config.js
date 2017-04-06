@@ -3,7 +3,7 @@
 module.exports = function () {
 
 	var client = './src/client/';
-	var server = './src/server/'
+	var server = './src/server/';
 
 	var config = {
 

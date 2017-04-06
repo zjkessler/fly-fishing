@@ -1,9 +1,9 @@
-var express = require("express");
-var fs = require("fs");
-var cheerio = require("cheerio");
-var request = require("request");
+var express = require('express');
+var fs = require('fs');
+var cheerio = require('cheerio');
+var request = require('request');
 var scrapeRouter = express.Router();
-var Report = require("./models/reportModel");
+var Report = require('./models/reportModel');
 
 
 
@@ -11,8 +11,8 @@ var Report = require("./models/reportModel");
 
 scrapeRouter.route('/')
 	.get(function (req, res) {
-		console.log(" you got here")
-		url = 'https://www.westernriversflyfishing.com/north_eastern_utah_report';
+		console.log(' you got here');
+		var url = 'https://www.westernriversflyfishing.com/north_eastern_utah_report';
 
 		request(url, function (error, response, html) {
 			if (!error) {
@@ -20,8 +20,8 @@ scrapeRouter.route('/')
 
 				var title, body, date;
 				var report = {
-					title: "",
-					body: ""
+					title: '',
+					body: ''
 				};
 
 				$('.resource_message').filter(function () {
@@ -30,7 +30,7 @@ scrapeRouter.route('/')
 					body = data.children().first().next().text();
 
 					report.title = title;
-					report.body = body.replace("\r\g", "");
+					report.body = body.replace('\r\g', '');
 				});
 			}
 
@@ -41,7 +41,7 @@ scrapeRouter.route('/')
 				} else {
 					res.send(deleteReport);
 				}
-			})
+			});
 
 			//			set new report to DB
 
@@ -50,6 +50,6 @@ scrapeRouter.route('/')
 				if (err) res.status(500).send(err);
 			});
 		});
-	})
+	});
 
 module.exports = scrapeRouter;
