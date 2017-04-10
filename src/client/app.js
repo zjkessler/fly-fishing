@@ -11,31 +11,31 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$mdThe
 	$stateProvider
 		.state('Home', {
 			url: '/',
-			templateUrl: './components/home/home.html',
+			templateUrl: 'components/home/home.html',
 		})
 		.state('About', {
 			url: '/about',
-			templateUrl: './components/about/about.html',
+			templateUrl: 'components/about/about.html',
 			controller: 'AboutCtrl'
 		})
 		.state('Weather', {
 			url: '/weather',
-			templateUrl: './components/weather/weather.html',
+			templateUrl: 'components/weather/weather.html',
 			controller: 'WeatherCtrl'
 		})
-		.state('Report', {
+		.state('Reports', {
 			url: '/report',
-			templateUrl: './components/report/report.html',
+			templateUrl: 'components/report/report.html',
 			controller: 'ReportCtrl'
 		})
 		.state('Blog', {
 			url: '/blog',
-			templateUrl: './components/blog/blog.html',
+			templateUrl: 'components/blog/blog.html',
 			controller: 'BlogCtrl'
 		})
 		.state('Profile', {
 			url: '/profile',
-			templateUrl: './components/profile/profile.html',
+			templateUrl: 'components/profile/profile.html',
 			controller: 'ProfileCtrl'
 		});
 

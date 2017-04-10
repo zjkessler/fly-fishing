@@ -2,17 +2,3 @@ body {
 	background: url(img/fozgj2a_cw4-lukas-budimaier.jpg) no-repeat center center fixed;
 	background-size: cover;
 }
-
-input {
-	color: white;
-}
-
-.jumbotron {
-	z-index: 1000;
-	background: lightgrey;
-}
-
-#searchButton {
-	width: px;
-	/*border-radius: 50%;*/
-}

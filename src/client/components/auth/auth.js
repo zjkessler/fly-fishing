@@ -1,23 +1,27 @@
-var app = angular.module("Auth", ["ngStorage"]);
+'use strict';
+var app = angular.module('Auth', ['ngStorage']);
 
-app.config(["$stateProvider", function ($stateProvider) {
-    'use strict';
+app.config(['$stateProvider', function ($stateProvider) {
+
 	$stateProvider
-		.state("/signup", {
-			templateUrl: "auth/signup/signup.html",
-			controller: "SignupCtrl"
+		.state('Signup', {
+			url: '/signup',
+			templateUrl: 'components/auth/signup/signup.html',
+			controller: 'SignupCtrl'
 		})
-		.state("/login", {
-			templateUrl: "auth/login/login.html",
-			controller: "LoginCtrl"
+		.state('Login', {
+			url: '/login',
+			templateUrl: 'components/auth/login/login.html',
+			controller: 'LoginCtrl'
 		})
-		.state("/logout", {
-			controller: "LogoutCtrl",
-			template: ""
+		.state('Logout', {
+			url: '/logout',
+			controller: 'LogoutCtrl',
+			template: ''
 		});
 	}]);
 
-app.service("TokenService", ["$localStorage", function ($localStorage) {
+app.service('TokenService', ['$localStorage', function ($localStorage) {
 
 	this.setToken = function (token) {
 		$localStorage.token = token;
@@ -32,14 +36,14 @@ app.service("TokenService", ["$localStorage", function ($localStorage) {
 	};
 	}]);
 
-app.service("UserService", ["$http", "TokenService", function ($http, TokenService) {
+app.service('UserService', ['$http', 'TokenService', function ($http, TokenService) {
 
 	this.signup = function (user) {
-		return $http.post("/auth/signup", user);
+		return $http.post('/auth/signup', user);
 	};
 
 	this.login = function (user) {
-		return $http.post("/auth/login", user)
+		return $http.post('/auth/login', user)
 			.then(function (response) {
 				TokenService.setToken(response.data.token);
 			});
@@ -54,12 +58,12 @@ app.service("UserService", ["$http", "TokenService", function ($http, TokenServi
 	};
 	}]);
 
-app.service("AuthInterceptor", ["$q", "$location", "TokenService", function ($q, $location, TokenService) {
+app.service('AuthInterceptor', ['$q', '$location', 'TokenService', function ($q, $location, TokenService) {
 	this.request = function (config) {
 		var token = TokenService.getToken();
 		if (token) {
 			config.headers = config.headers || {};
-			config.headers.Authorization = "Bearer " + token;
+			config.headers.Authorization = 'Bearer ' + token;
 		}
 		return config;
 	};
@@ -67,10 +71,10 @@ app.service("AuthInterceptor", ["$q", "$location", "TokenService", function ($q,
 	this.responseError = function (response) {
 		if (response.status === 401) {
 			TokenService.removeToken();
-			$location.path("/login");
+			$location.path('/login');
 		}
 		return $q.reject(response);
-	}
+	};
 	}]);
 
 app.config(function ($httpProvider) {

@@ -1,19 +1,20 @@
-var app = angular.module("Auth");
+var app = angular.module('Auth');
 
-app.controller("SignupCtrl", ["$scope", "$location", "UserService", function ($scope, $location, UserService) {
+app.controller('SignupCtrl', ['$scope', '$location', 'UserService', function ($scope, $location, UserService) {
 
-	$scope.passwordMessage = "";
+	$scope.passwordMessage = '';
 
 	$scope.signup = function (user) {
 		if ($scope.user.password !== $scope.passwordRepeat) {
-			$scope.passwordMessage = "Passwords do not match.";
+			$scope.passwordMessage = 'Passwords do not match.';
 		} else {
+			console.log(user);
 			UserService.signup(user).then(function (response) {
-				$location.path("/login");
+				$location.path('/login');
 
 			}, function (response) {
-				alert("There was a problem: " + response.data.message);
+				alert('There was a problem: ' + response.data.message);
 			});
 		}
-	}
+	};
 }]);

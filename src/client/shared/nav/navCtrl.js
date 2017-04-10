@@ -1,30 +1,9 @@
 'use strict';
 var app = angular.module('FishApp');
 
-app.controller('NavCtrl', ['$scope', function ($scope) {
+app.controller('NavCtrl', ['$scope', 'NavSvc', function ($scope, NavSvc) {
 
-		$scope.links = [{
-			title: 'Home',
-			state: 'home'
-		}, {
-			title: 'Blog',
-			state: 'blog'
-		}, {
-			title: 'Weather',
-			state: 'weather'
-		}, {
-			title: 'Fishing Reports',
-			state: 'reports'
-		}, {
-			title: 'About',
-			state: 'about'
-		}, {
-			title: 'Login',
-			state: 'login'
-		}, {
-			title: 'Signup',
-			state: 'signup'
-		}];
+		$scope.links = NavSvc.links;
 
 		$scope.currentNavItem = '';
 }])

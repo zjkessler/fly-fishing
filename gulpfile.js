@@ -7,7 +7,8 @@ var $ = require('gulp-load-plugins')({
 	lazy: true
 });
 var port = process.env.PORT || config.defaultPort;
-var browsersync = require('browser-sync');
+var bs = require('browser-sync').create();
+
 
 
 gulp.task('vet', function () {
@@ -26,12 +27,16 @@ gulp.task('vet', function () {
 gulp.task('wiredep', function () {
 	log('Wire up bower css js and app js into html');
 	var options = config.getWiredepDefaultOptions();
-	var wiredep = require('gulp-wiredep');
+	var wiredep = require('wiredep').stream;
 	console.log();
 	return gulp
 		.src(config.index)
-		.pipe(wiredep(options))
-		.pipe($.inject(gulp.src(config.js)))
+		.pipe(wiredep(options), {
+			relative: true
+		})
+		.pipe($.inject(gulp.src(config.js), {
+			relative: true
+		}))
 		.pipe(gulp.dest(config.client));
 
 });
@@ -40,54 +45,86 @@ gulp.task('inject', ['wiredep'], function () {
 	log('Wire up app css into html');
 	return gulp
 		.src(config.index)
-		.pipe($.inject(gulp.src(config.css)))
+		.pipe($.inject(gulp.src(config.css), {
+			relative: true
+		}))
 		.pipe(gulp.dest(config.client));
 });
 
 
 
-gulp.task('serve-dev', ['inject'], function () {
+gulp.task('serve', ['inject', 'nodemon'], function () {
 
-	var isDev = true;
+	//		var isDev = true;
+	//
+	//		var nodeOptions = {
+	//			script: config.nodeServer,
+	//			delaytime: 1,
+	//			env: {
+	//				'PORT': port,
+	//				'NODE_ENV': isDev ? 'dev' : 'build',
+	//			},
+	//			watch: [config.server]
+	//		};
+	//
+	//		return $.nodemon(nodeOptions)
+	//			.on('restart', ['vet'], function () {
+	//				log('*** nodemon restarted');
+	//			}).on('start', function () {
+	//				log('*** nodemon started');
+	//				startbs();
+	//			}).on('crash', function () {
+	//				log('*** nodemon crashed!');
+	//			}).on('exit', function () {
+	//				log('*** nodemon exited');
+	//			});
 
-	var nodeOptions = {
-		script: config.nodeServer,
-		delaytime: 1,
-		env: {
-			'PORT': port,
-			'NODE_ENV': isDev ? 'dev' : 'build',
-		},
-		watch: [config.server]
-	};
+	bs.init({
+		proxy: 'localhost:5000',
+		//		port: 8000,
+		notify: true,
+		reloadDelay: 1000
+	});
+});
 
-	return $.nodemon(nodeOptions)
-		.on('restart', ['vet'], function () {
-			log('*** nodemon restarted');
-		}).on('start', function () {
-			log('*** nodemon started');
-			startBrowserSync();
-		}).on('crash', function () {
-			log('*** nodemon crashed!');
-		}).on('exit', function () {
-			log('*** nodemon exited');
+gulp.task('nodemon', function (cb) {
+	var called = false;
+	return $.nodemon({
+			script: './src/server/server.js',
+			env: {
+				'NODE_ENV': 'development'
+			},
+			ignore: [
+      'gulpfile.js',
+      'node_modules/'
+    ]
+		})
+		.on('start', function () {
+			if (!called) {
+				called = true;
+				cb();
+			}
+		})
+		.on('restart', function () {
+			setTimeout(function () {
+				bs.reload();
+			}, 1000);
 		});
 });
 
-gulp.task('jsReload', ['serve-dev'], function (done) {
-	browsersync.reload();
-	done();
 
+gulp.task('build', ['serve'], function () {
+	gulp.watch([config.js, '**/*.html'], bs.reload);
 });
-
 ////////////////
-function startBrowserSync() {
-	if (browsersync.active) {
+function startbs() {
+	if (bs.active) {
 		return;
 	}
-	log('Starting browser-sync on port' + port);
+	log('Starting browser-sync on port ' + port);
 	var options = {
-		proxy: 'localhost:' + port,
-		port: 3000,
+		proxy: 'localhost: ' + port,
+		port: 8000,
 		files: [config.client + '**/*.*'],
 		ghostMode: {
 			clicks: true,

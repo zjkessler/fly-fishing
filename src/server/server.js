@@ -8,7 +8,7 @@ var config = require('./config');
 var logger = require('morgan');
 var expressJwt = require('express-jwt');
 var request = require('request');
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 5000;
 
 var uri = 'mongodb: heroku_55jtlxxr: mprince8432 @ds127949.mlab.com: 27949 / heroku_55jtlxxr';
 

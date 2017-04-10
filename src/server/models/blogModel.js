@@ -1,5 +1,5 @@
 'use strict';
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var blogSchema = new Schema({
@@ -8,8 +8,8 @@ var blogSchema = new Schema({
 	feedId: String,
 	reader: {
 		type: Schema.Types.ObjectId,
-		ref: "User"
+		ref: 'User'
 	}
-})
+});
 
-module.exports = mongoose.model("Blog", blogSchema);
+module.exports = mongoose.model('Blog', blogSchema);

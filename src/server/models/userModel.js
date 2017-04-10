@@ -1,7 +1,7 @@
 	'use strict';
-	var mongoose = require("mongoose");
+	var mongoose = require('mongoose');
 	var Schema = mongoose.Schema;
-	var bcrypt = require("bcrypt");
+	var bcrypt = require('bcrypt');
 
 	var userSchema = new Schema({
 
@@ -13,7 +13,7 @@
 			type: String,
 			required: true
 		},
-		email: {
+		username: {
 			type: String,
 			required: true,
 			unique: true
@@ -28,18 +28,22 @@
 		},
 		blogList: [{
 			type: Schema.Types.ObjectId,
-			ref: "Blog"
-	}],
-		weatherList: [],
-		fishingReportList: []
+			ref: 'Blog'
+	}]
+		//		weatherList: [],
+		//		fishingReportList: []
 	});
 
-	userSchema.pre("save", function (next) {
+	userSchema.pre('save', function (next) {
 		var user = this;
-		if (!user.isModified("password")) return next();
+		if (!user.isModified('password')) {
+			return next();
+		}
 
 		bcrypt.hash(user.password, 10, function (err, hash) {
-			if (err) return next(err);
+			if (err) {
+				return next(err);
+			}
 
 			user.password = hash;
 			next();
@@ -48,7 +52,9 @@
 
 	userSchema.methods.checkPassword = function (passwordAttempt, callback) {
 		bcrypt.compare(passwordAttempt, this.password, function (err, isMatch) {
-			if (err) return callback(err);
+			if (err) {
+				return callback(err);
+			}
 			callback(null, isMatch);
 		});
 	};
@@ -59,4 +65,4 @@
 		return user;
 	};
 
-	module.exports = mongoose.model("User", userSchema);
+	module.exports = mongoose.model('User', userSchema);

@@ -31,10 +31,17 @@
 </nav>
 -->
 <md-content class="md-padding" layout="row">
-	<h3>The Flybox</h3>
+
+	<h3><a ui-sref="Home">The Flybox</a></h3>
+
 	<md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
 		<div ng-repeat="item in links">
 			<md-nav-item md-nav-sref="{{item.title}}" name="{{item.title}}">{{item.title}}</md-nav-item>
+		</div>
+		<div layout="row" layout-align="end">
+			<md-nav-item md-nav-sref="Login" ng-hide="UserService.isAuthenticated()">Login</md-nav-item>
+			<md-nav-item md-nav-sref="Signup" ng-hide="UserService.isAuthenticated()">Signup</md-nav-item>
+			<md-nav-item md-nav-sref="Logout" ng-hide="!UserService.isAuthenticated()">Logout</md-nav-item>
 		</div>
 	</md-nav-bar>
 </md-content>

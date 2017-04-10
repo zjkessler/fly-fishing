@@ -8,20 +8,22 @@ module.exports = function () {
 	var config = {
 
 		alljs: ['./src/**/*.js',
-				'./*js'],
+				'./*js', '!' + client + 'bower_components/**/*.js'],
 
 		client: client,
 		index: client + 'index.html',
-		js: [client + '**/*.module.js',
-			 client + '**/*.js',
-			'!' + client + '**/*.spec.js'],
-		css: client + '**/*.css',
+		js: [
+			  client + '**/*.js',
+			'!' + client + '**/*.spec.js',
+		'!' + client + 'bower_components/**/*.js'],
+		jsIgnorePath: client,
+		css: [client + '**/*.css', '!' + client + 'bower_components/**/*.css'],
 		server: '',
 
 		//	Bower and Npm Locations
 		bower: {
 			json: require('./bower.json'),
-			directory: './bower_components/',
+			directory: client + 'bower_components/',
 			ignorePath: '../..'
 		},
 		//NODE 

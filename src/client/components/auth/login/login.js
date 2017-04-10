@@ -1,13 +1,14 @@
-var app = angular.module("Auth");
+'use strict';
+var app = angular.module('Auth');
 
-app.controller("LoginCtrl", ["$scope", "$location", "UserService", function ($scope, $location, UserService) {
+app.controller('LoginCtrl', ['$scope', '$location', 'UserService', function ($scope, $location, UserService) {
 
 	$scope.login = function (user) {
 		UserService.login(user)
 			.then(function (response) {
-				$location.path("/product");
+				$location.path('/home');
 			}, function (response) {
 				alert(response.data.message);
 			});
-	}
+	};
 }]);
