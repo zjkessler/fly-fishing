@@ -25,9 +25,9 @@
 
 
 	<navbar></navbar>
-
-	<div ui-view></div>
-
+	<md-content class="md-padding">
+		<div ui-view></div>
+	</md-content>
 
 
 
@@ -51,7 +51,6 @@
 
 	<!-- inject:js -->
 	<script src="app.js"></script>
-	<script src="components/about/aboutCtrl.js"></script>
 	<script src="components/auth/auth.js"></script>
 	<script src="components/blog/blogCtrl.js"></script>
 	<script src="components/profile/profileCtrl.js"></script>
@@ -59,9 +58,10 @@
 	<script src="components/weather/weatherCtrl.js"></script>
 	<script src="shared/nav/navCtrl.js"></script>
 	<script src="shared/nav/navSvc.js"></script>
+	<script src="components/about/aboutCtrl.js"></script>
 	<script src="components/auth/login/login.js"></script>
-	<script src="components/auth/logout/logout.js"></script>
 	<script src="components/auth/signup/signup.js"></script>
+	<script src="components/auth/logout/logout.js"></script>
 	<!-- endinject -->
 
 

@@ -1,10 +1,10 @@
 'use strict';
 var app = angular.module('FishApp', ['ui.router', 'Auth', 'ui.bootstrap', 'ngMaterial', 'ngMdIcons']);
 
-app.config(['$stateProvider', '$locationProvider', '$mdThemingProvider', function ($stateProvider, $locationProvider, $mdThemingProvider) {
+app.config(['$stateProvider', '$locationProvider', '$mdThemingProvider', '$urlRouterProvider', function ($stateProvider, $locationProvider, $mdThemingProvider, $urlRouterProvider) {
 
 	$locationProvider.hashPrefix('');
-	//		.html5Mode(true).otherwise('/');
+	$urlRouterProvider.html5Mode(true).otherwise('/');
 
 	$stateProvider
 		.state('Home', {
@@ -38,7 +38,7 @@ app.config(['$stateProvider', '$locationProvider', '$mdThemingProvider', functio
 		});
 
 	$mdThemingProvider.theme('default')
-		.primaryPalette('green')
+		.primaryPalette('indigo')
 		.accentPalette('blue');
-	//		.dark();
+	//.dark();
 }]);

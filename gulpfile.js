@@ -108,7 +108,7 @@ gulp.task('nodemon', function (cb) {
 		.on('restart', function () {
 			setTimeout(function () {
 				bs.reload();
-			}, 1000);
+			}, 2000);
 		});
 });
 
