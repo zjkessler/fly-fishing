@@ -3,7 +3,8 @@ var app = angular.module('FishApp');
 
 app.controller('NavCtrl', ['$scope', 'NavSvc', function ($scope, NavSvc) {
 
-		$scope.links = NavSvc.links;
+		$scope.navLinks = NavSvc.navLinks;
+		$scope.authLinks = NavSvc.authLinks;
 
 		$scope.currentNavItem = '';
 }])

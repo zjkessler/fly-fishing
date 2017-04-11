@@ -1,3 +1,4 @@
+'use strict';
 var express = require('express');
 var authRouter = express.Router();
 var User = require('../models/userModel');
@@ -5,7 +6,7 @@ var jwt = require('jsonwebtoken');
 var config = require('../config');
 
 authRouter.post('/signup', function (req, res) {
-	'use strict';
+
 	var user = new User(req.body);
 	user.save(function (err, newUser) {
 		if (err) res.status(500).send(err);
