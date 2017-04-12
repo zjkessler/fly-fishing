@@ -2,16 +2,15 @@
 	<md-toolbar md-scroll-shrink class="md-toolbar-tools md-whiteframe-4dp">
 		<h3><a ui-sref="Home">The Flybox</a></h3>
 		<span flex></span>
+		<md-button ui-sref="Login" ng-hide="UserService.isAuthenticated()">Login</md-button>
+		<md-button ui-sref="Signup" ng-hide="UserService.isAuthenticated()">Signup</md-button>
+		<md-button ui-sref="Logout" ng-hide="!UserService.isAuthenticated()">Logout</md-button>
+
 	</md-toolbar>
 
 	<md-nav-bar class="md-whiteframe-8dp navbar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
 		<div ng-repeat="item in navLinks">
 			<md-nav-item md-nav-sref="{{item.title}}" name="{{item.title}}">{{item.title}}</md-nav-item>
-		</div>
-		<div layout="row" layout-align="end">
-			<md-nav-item md-nav-sref="Login" ng-hide="UserService.isAuthenticated()">Login</md-nav-item>
-			<md-nav-item md-nav-sref="Signup" ng-hide="UserService.isAuthenticated()">Signup</md-nav-item>
-			<md-nav-item md-nav-sref="Logout" ng-hide="!UserService.isAuthenticated()">Logout</md-nav-item>
 		</div>
 	</md-nav-bar>
 

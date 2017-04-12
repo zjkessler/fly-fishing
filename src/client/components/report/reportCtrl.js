@@ -1,6 +1,7 @@
 var app = angular.module('FishApp');
 
 app.controller('ReportCtrl', ['$scope', 'ReportService', function ($scope, ReportService) {
+    'use strict';
 
 	$scope.Report = [];
 
