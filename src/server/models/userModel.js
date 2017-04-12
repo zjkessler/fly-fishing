@@ -7,11 +7,11 @@
 
 		firstName: {
 			type: String,
-			required: true
+			required: false
 		},
 		lastName: {
 			type: String,
-			required: true
+			required: false
 		},
 		username: {
 			type: String,

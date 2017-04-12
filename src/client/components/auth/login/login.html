@@ -1,7 +1,7 @@
 <md-card md-padding flex="70" flex-offset="15" layout="column" layout-align="center center">
 
 	<h1>Log in</h1>
-	<form name="login" layout="column">
+	<form name="loginForm" layout="column">
 		<md-input-container>
 			<label for="username">Username</label>
 			<input type="username" id="username" ng-model="user.username" required md-max-length="30">
@@ -18,7 +18,7 @@
 			</div>
 
 		</md-input-container>
-		<md-button ng-click="login(user)">Login</md-button>
+		<md-button class="md-raised md-primary" ng-click="login(user)">Login</md-button>
 
 	</form>
 

@@ -3,8 +3,9 @@ var app = angular.module('FishApp', ['ui.router', 'Auth', 'ui.bootstrap', 'ngMat
 
 app.config(['$stateProvider', '$locationProvider', '$mdThemingProvider', '$urlRouterProvider', function ($stateProvider, $locationProvider, $mdThemingProvider, $urlRouterProvider) {
 
-	$locationProvider.hashPrefix('');
-	$urlRouterProvider.html5Mode(true).otherwise('/');
+	$locationProvider.hashPrefix('')
+		.html5Mode(true);
+	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
 		.state('Home', {
