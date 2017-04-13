@@ -1,8 +1,8 @@
-var app = angular.module("Auth");
+var app = angular.module('Auth');
 
-app.controller("LogoutCtrl", ["$scope", "$location", "UserService", function ($scope, $location, UserService) {
+app.controller('LogoutCtrl', ['$scope', '$location', 'UserService', function ($scope, $location, UserService) {
 
 	UserService.logout();
-	$location.path("/");
+	$location.path('/');
 
 }]);

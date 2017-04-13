@@ -4,6 +4,7 @@
 		<span flex></span>
 		<md-button ui-sref="Login" ng-hide="UserService.isAuthenticated()">Login</md-button>
 		<md-button ui-sref="Signup" ng-hide="UserService.isAuthenticated()">Signup</md-button>
+		<md-button ui-sref="Profile" ng-hide="!UserService.isAuthenticated()">Profile</md-button>
 		<md-button ui-sref="Logout" ng-hide="!UserService.isAuthenticated()">Logout</md-button>
 
 	</md-toolbar>

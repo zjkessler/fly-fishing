@@ -1,22 +1,22 @@
-var app = angular.module("FishApp");
+var app = angular.module('FishApp');
 
-app.controller("BlogCtrl", ["$scope", "BlogService", function ($scope, BlogService) {
+app.controller('BlogCtrl', ['$scope', 'BlogService', function ($scope, BlogService) {
 	'use strict';
 
 	$scope.searchResults = [];
 	$scope.blogList = [];
 	$scope.articleList = [];
-	$scope.aticleRead = []
+	$scope.aticleRead = [];
 
 	//search for feeds
 	$scope.searchRSS = function (query) {
-		console.log(query)
+		console.log(query);
 		BlogService.searchRSS(query)
 			.then(function (response) {
-				console.log(response.results)
+				console.log(response.results);
 				$scope.searchResults = response.results;
-			})
-	}
+			});
+	};
 
 	//save feed to db and attach to user
 	$scope.addBlog = function (blog) {
@@ -28,21 +28,21 @@ app.controller("BlogCtrl", ["$scope", "BlogService", function ($scope, BlogServi
 	};
 
 	// get individual feedlist for display
-	$scope.showBlog = function () {
+	$scope.showBlog = (function () {
 		BlogService.showBlog()
 			.then(function (response) {
 				console.log(response);
 				$scope.blogList = response;
-			})
-	}();
+			});
+	}());
 
 	//get individual blog article list for display
 	$scope.readBlog = function (blogListing) {
 		BlogService.getOneBlog(blogListing)
 			.then(function (response) {
 
-			})
-	}
+			});
+	};
 
 	//get individual article for display
 	//	$scope.readBlog = function(blogListing){
@@ -54,64 +54,63 @@ app.controller("BlogCtrl", ["$scope", "BlogService", function ($scope, BlogServi
 
 	//delete individual blog from db
 	$scope.deleteBlog = function (item, index) {
-		console.log(item)
+		console.log(item);
 		BlogService.removeBlog(item)
 			.then(function (response) {
 				$scope.blogList.splice(index, 1);
-			})
-	}
+			});
+	};
 
 
-			}])
+			}]);
 
-app.service("BlogService", ["$http", function ($http) {
+app.service('BlogService', ['$http', function ($http) {
 	var config = {
 		headers: {
-			Authorization: "OAuth 6b7cb13c-bb38-42b4-a6b8-5a6d3a8b0aaf"
+			Authorization: 'OAuth 6b7cb13c-bb38-42b4-a6b8-5a6d3a8b0aaf'
 		}
-	}
+	};
 
 	this.searchRSS = function (query) {
 
-		return $http.get("/api/search?q=" + query)
+		return $http.get('/api/search?q=' + query)
 			.then(function (response) {
 				return response.data;
 			}, function (response) {
-				console.log(response)
-				console.log("Error" + response.status + ":" + response.statusText);
-			})
-	}
+				console.log(response);
+				console.log('Error' + response.status + ':' + response.statusText);
+			});
+	};
 
 	this.addBlog = function (blog) {
-		return $http.post("/api/search", blog)
+		return $http.post('/api/search', blog)
 			.then(function (response) {
 				return response;
 			}, function (response) {
-				console.log(response)
-				console.log("Error" + response.status + ":" + response.statusText);
-			})
-	}
+				console.log(response);
+				console.log('Error' + response.status + ':' + response.statusText);
+			});
+	};
 
 	this.showBlog = function () {
-		return $http.get("api/read")
+		return $http.get('api/read')
 			.then(function (response) {
 				return response.data;
 			}, function (response) {
-				console.log("Error" + response.status + ":" + response.statusText);
-			})
-	}
-
+				console.log('Error' + response.status + ':' + response.statusText);
+			});
+	};
 	//this.getOneBlog =function(){
 	//
 	//}
 
 	this.removeBlog = function (blog) {
-		return $http.delete("api/read/" + blog._id)
+		return $http.delete('api/read/' + blog._id)
 			.then(function (response) {
 				return response;
 			}, function (response) {
-				console.log("Error" + response.status + ":" + response.statusText)
-			})
-	}
+				console.log('Error' + response.status + ':' + response.statusText);
+			});
+	};
 
-       }])
+       }]);

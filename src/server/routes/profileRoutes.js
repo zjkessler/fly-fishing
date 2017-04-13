@@ -1,30 +1,50 @@
-var express = require("express");
+'use strict';
+var express = require('express');
 var profileRoute = express.Router();
-var User = require("../models/userModel");
+var User = require('../models/userModel');
 
-profileRoute.route("/")
+profileRoute.route('/')
 	.get(function (req, res) {
 		User.findById({
 			_id: req.user._id
 		}, function (err, user) {
 			console.log(user);
-			if (err) res.status(500).send(err);
-			res.send(user);
-		})
-	})
-
-profileRoute.route("/:userid")
-	.put(function (req, res) {
-		console.log(req.params.userid)
-		User.findByIdAndUpdate(req.params.userid, req.body, {
-			new: true
-		}, function (err, updateUser) {
 			if (err) {
-				res.status(500).send(err)
+				res.status(500).send(err);
 			} else {
-				res.send(updateUser);
+				res.send(user);
 			}
-		})
+		});
+	});
+
+profileRoute.route('/:userId')
+	.put(function (req, res) {
+		console.log(req.params);
+		User.findByIdAndUpdate({
+				_id: req.user._id
+			},
+			req.body,
+			function (err, updateUser) {
+				if (err) {
+					res.status(500).send(err);
+				} else {
+					console.log('you got here');
+					res.send(updateUser);
+				}
+			});
 	})
+	.delete(function (req, res) {
+		console.log(req.params);
+		User.findByIdAndRemove({
+			_id: req.params.userId
+		}, function (err, deleteUser) {
+			if (err) {
+				res.status(500).send(err);
+			} else {
+				console.log('you got here');
+				res.send(deleteUser);
+			}
+		});
+	});
 
 module.exports = profileRoute;

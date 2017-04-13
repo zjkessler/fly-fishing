@@ -1,11 +1,12 @@
-var express = require("express");
+var express = require('express');
 var request = require('request');
 var searchRouter = express.Router();
-var Blog = require("../models/blogModel");
-var User = require("../models/userModel");
+var Blog = require('../models/blogModel');
+var User = require('../models/userModel');
 
 searchRouter.route('/')
 	.get(function (req, res) {
+		'use strict';
 		var search = req.query.q;
 		request('http://www.feedly.com/v3/search/feeds?q=' + search, function (error, response, body) {
 			res.send(JSON.parse(body));
@@ -15,10 +16,13 @@ searchRouter.route('/')
 		var blog = new Blog(req.body);
 		blog.reader = req.user._id;
 		blog.save(function (error) {
-			if (error) res.status(500).send(error);
-			res.send(blog)
-		})
-	})
+			if (error) {
+				res.status(500).send(error);
+			} else {
+				res.send(blog);
+			}
+		});
+	});
 
 
 module.exports = searchRouter;

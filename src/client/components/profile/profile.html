@@ -1,42 +1,43 @@
-<div class="row">
-	<div class="col-md-4 col-md-offset-4 well">
-		<h1>Profile</h1>
+<md-card layout="column" flex="100" flex-gt-sm="70" flex-offset-gt-sm="15">
+	<div>
+		<md-toolbar layout-align="center center">
+			<h1>Profile</h1>
+		</md-toolbar>
+		<form name="profileForm" layout="column" flex="100" flex-gt-sm="70" flex-offset-gt-sm="15" layout-padding>
 
-		<form>
-
-			<div class="form-group">
-				<label for="email">First Name: {{profile.firstName}}</label>
-				<input type="text" id="firstname" class="form-control" ng-model="user.firstName">
-			</div>
-
-			<div class="form-group">
-				<label for="password">Last Name: {{profile.lastName}}</label>
-				<input type="text" id="lastname" class="form-control" ng-model="user.lastName">
-			</div>
-			<div class="form-group">
-				<label for="email">Email : {{profile.email}}</label>
-				<input type="email" id="email" class="form-control" ng-model="user.email">
-			</div>
-			<div class="form-group">
-				<label for="password">State: {{profile.userAddress.state}}</label>
-				<input type="text" id="state" class="form-control" ng-model="user.userAddress.state">
-			</div>
-			<div class="form-group">
-				<label for="password">Address : {{profile.userAddress.address}}</label>
-				<input type="text" id="address" class="form-control" ng-model="user.userAddress.address">
-			</div>
-			<div class="form-group">
-				<label for="passwordRepeat">Password: {{profile.password}}</label>
-				<input type="password" id="passwordRepeat" class="form-control" ng-model="user.password">
-			</div>
-			<div class="form-group">
+			<md-input-container class="form-group">
+				<label for="firsttName">First Name: {{profile.firstName}}</label>
+				<input type="text" id="firstName" ng-model="user.firstName">
+			</md-input-container>
+			<md-input-container class="form-group">
+				<label for="lastName">Last Name: {{profile.lastName}}</label>
+				<input type="text" id="lastName" ng-model="user.lastName">
+			</md-input-container>
+			<md-input-container class="form-group">
+				<label for="username">Username : {{profile.username}}</label>
+				<input type="username" id="username" ng-model="user.username">
+			</md-input-container>
+			<md-input-container class="form-group">
+				<label for="address">Address : {{profile.userAddress.address}}</label>
+				<input type="text" id="address" ng-model="user.userAddress.address">
+			</md-input-container>
+			<md-input-container class="form-group">
+				<label for="state">State: {{profile.userAddress.state}}</label>
+				<input type="text" id="state" ng-model="user.userAddress.state">
+			</md-input-container>
+			<md-input-container class="form-group">
+				<label for="password">Password: ********</label>
+				<input type="password" id="password" ng-model="user.password">
+			</md-input-container>
+			<md-input-container class="form-group">
 				<label for="passwordRepeat">Repeat Password</label>
-				<input type="password" id="passwordRepeat" class="form-control" ng-model="passwordRepeat">
-				<span class="text-danger" ng-show="passwordMessage">{{passwordMessage}}</span>
+				<input type="password" id="passwordRepeat" ng-model="passwordRepeat">
+				<span ng-show="passwordMessage">{{passwordMessage}}</span>
+			</md-input-container>
+			<div>
+				<md-button class="md-primary md-raised " ng-click="updateProfile(user)">Update</md-button>
 			</div>
-
-			<button class="center-block btn btn-primary btn-lg" ng-click="updateProfile(profile)">Update</button>
-
+			<md-button class="md-warn md-raised" ng-click="deleteUser(profile)">Delete Profile</md-button>
 		</form>
 	</div>
-</div>
+</md-card>
