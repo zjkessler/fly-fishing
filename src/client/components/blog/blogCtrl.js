@@ -1,7 +1,7 @@
+'use strict';
 var app = angular.module('FishApp');
 
 app.controller('BlogCtrl', ['$scope', 'BlogService', function ($scope, BlogService) {
-	'use strict';
 
 	$scope.searchResults = [];
 	$scope.blogList = [];

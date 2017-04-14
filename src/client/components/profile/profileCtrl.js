@@ -19,10 +19,8 @@ app.service('ProfileService', ['$http', '$location', function ($http, $location)
 			});
 	};
 	this.removeProfile = function (user) {
-		console.log('profile on the way to be deleted');
 		return $http.delete('/api/profile/' + user._id)
 			.then(function (response) {
-				console.log('delete res going to ctrl');
 				return response;
 			});
 	};

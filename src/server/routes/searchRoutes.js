@@ -1,3 +1,4 @@
+'use strict';
 var express = require('express');
 var request = require('request');
 var searchRouter = express.Router();
@@ -6,7 +7,7 @@ var User = require('../models/userModel');
 
 searchRouter.route('/')
 	.get(function (req, res) {
-		'use strict';
+
 		var search = req.query.q;
 		request('http://www.feedly.com/v3/search/feeds?q=' + search, function (error, response, body) {
 			res.send(JSON.parse(body));

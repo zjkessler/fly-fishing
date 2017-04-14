@@ -1,21 +1,43 @@
-<md-card md-padding>
-	<div>
-		<div id="reportHeader" flex="25">
-			<h3>Flyfishing Report</h3>
-		</div>
-	</div>
+<md-card>
 
-	<div layout="row">
-		<div flex>
+	<md-toolbar layout-align="center center">
+		<h3>Flyfishing Reports</h3>
+	</md-toolbar>
+
+	<div layout-gt-sm="row">
+		<div flex="25">
 			<div>
-				<md-button id="reportButton" class="btn btn-raised btn-warning" ng-click="refreshReport()">Refresh Fishing Report</md-button>
+				<md-button class="" ng-click="refreshReport()">Refresh Fishing Report</md-button>
 			</div>
+			<md-list>
+				<md-list-item ng-repeat="item in reportList track by $index">
+					<div class="md-list-item-text" layout="row">
+						<md-button class="md-warn md-raised" ng-click="removeReport(item, $index)">X</md-button>
+						<p>{{item.title}}</p>
+
+					</div>
+				</md-list-item>
+			</md-list>
 		</div>
-		<div flex="80" ng-repeat="report in Report">
-			<h1>{{ report.title }}</h1>
-			<p>{{ report.body}}</p>
+		<div flex="80">
+			<form action="" layout-gt-sm="row">
+				<md-input-container flex-gt-sm="40">
+					<input type="text" placeholder="Title" ng-model="report.title">
+				</md-input-container>
+				<md-input-container flex-gt-sm="40">
+					<input type="text" placeholder="URL" ng-model="report.url">
+				</md-input-container>
+				<md-button flex flex-gt-sm="20" class="md-primary" ng-click="saveReport(report)">Add Report</md-button>
+			</form>
+			<h2>{{report.title}}</h2>
+			<iframe ng-src="{{report.url}}" frameborder="0"></iframe>
 		</div>
 	</div>
 </md-card>
 
-//TODO: add Report Schema //TODO: add iframe for reports view //TODO: add ability to create list of saves reports //TODO: Dashboard View?
+<!--
+//TODO: add Report Schema
+ //TODO: add iframe for reports view
+ //TODO: add ability to create list of saves reports
+ //TODO: Dashboard View?
+-->

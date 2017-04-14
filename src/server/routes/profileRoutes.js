@@ -41,7 +41,6 @@ profileRoute.route('/:userId')
 			if (err) {
 				res.status(500).send(err);
 			} else {
-				console.log('you got here');
 				res.send(deleteUser);
 			}
 		});
