@@ -6,6 +6,7 @@ var blogSchema = new Schema({
 
 	title: String,
 	feedId: String,
+	website: String,
 	reader: {
 		type: Schema.Types.ObjectId,
 		ref: 'User'

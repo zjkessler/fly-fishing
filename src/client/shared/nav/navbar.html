@@ -11,7 +11,7 @@
 
 	<md-nav-bar class="md-whiteframe-8dp navbar" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
 		<div ng-repeat="item in navLinks">
-			<md-nav-item md-nav-sref="{{item.title}}" name="{{item.title}}">{{item.title}}</md-nav-item>
+			<md-nav-item ng-disabled="{{item.disabled}}" md-nav-sref="{{item.title}}" name="{{item.title}}">{{item.title}}</md-nav-item>
 		</div>
 	</md-nav-bar>
 

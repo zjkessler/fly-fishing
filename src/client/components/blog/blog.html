@@ -1,60 +1,57 @@
-<div class="row">
-	<div class="col-sm-offset-4 col-sm-5">
-		<form class="form-group label-floating">
+<div layout="column" layout-gt-sm="row">
 
-			<div class="row input-group well">
-				<label class="control-label">Search</label>
-				<input class="form-control" type="text" placeholder="" ng-model="search">
-				<span class="input-group-btn">
-					<button id="searchButton" class="btn btn-sm btn-primary" ng-click="searchRSS(search)"><i class="material-icons">search</i></button>
-					</span>
-			</div>
+	<div flex="50">
+		<md-card class="md-whiteframe-4dp md-margin">
+			<md-toolbar class="md-padding">
+				<h4 class="md-toolbar-tools">Search for Blogs</h4>
+			</md-toolbar>
 
-		</form>
-	</div>
-</div>
-
-<div class="row">
-	<div class="col-sm-3">
-		<div class="well" ng-if="blogList.length">
-			<div ng-repeat="item in blogList track by $index">
-				<div class="row">
-					<button class="col-sm-9 btn btn-sm btn-raised btn-primary" ng-click="showBlog(item)">{{item.title}}</button>
-					<button class="col-sm-1 btn btn-warning btn-sm center-text" ng-click="deleteBlog(item, $index)"><i class="material-icons">delete_forever</i></button>
+			<form name="blog-search" flex>
+				<div layout-gt-sm="row" layout-align="center center">
+					<md-input-container flex="75">
+						<input type="text" placeholder="Search" ng-model="search">
+					</md-input-container>
+					<md-button id="searchButton" class="md-rainsed md-primary" ng-click="searchRSS(search)"><i class="material-icons">search</i></md-button>
 				</div>
-			</div>
-		</div>
+			</form>
+		</md-card>
+
+
+		<md-card ng-if="searchResults.length" class="md-whiteframe-4dp md-margin">
+			<md-toolbar class="md-padding">
+				<h4 class="md-toolbar-tools">Search Results</h4>
+			</md-toolbar>
+			<md-list ng-repeat="item in searchResults">
+				<md-list-item>
+					<div class="md-list-item-text">
+						<h4>{{ item.title }}</h4>
+						<p>{{ item.description }}</p>
+					</div><span flex></span>
+					<md-button ng-click="addBlog(item)" class="md-accent md-raised"><i class=" material-icons">file_download</i></md-button>
+					<md-divider></md-divider>
+				</md-list-item>
+			</md-list>
+		</md-card>
+
 	</div>
-	<div class="col-sm-8">
-		<div class="well" ng-if="searchResults.length">
-			<h4>Search Results</h4>
-			<div class="list-group" ng-repeat="item in searchResults">
-				<a class="list-group-item">
-					<div class="row">
-						<div class="center-text">
-							<div class="col-sm-10">
-								<h4>{{ item.title }}</h4>
-								<p>{{ item.description }}</p>
-							</div>
-							<button ng-click="addBlog(item)" class="col-sm-1 btn btn-sm btn-raised btn-primary"><i class=" material-icons">file_download</i></button>
-						</div>
-					</div>
-				</a>
-			</div>
-			<div ng-repeat="blog in blogSample">
-				<a class="list-group-item" ng-click="readBlog(blog)">
-					<div>{{blog}}</div>
-					<button class="btn btn-raised btn-warning"></button>
-				</a>
-			</div>
-			<div ng-repeat="blog in blogRead"></div>
-		</div>
-	</div>
+	<md-card ng-if="blogList.length" flex="50" class="md-whiteframe-4dp md-margin">
+		<md-toolbar class="md-padding">
+			<h4 class="md-toolbar-tools">Blog List</h4>
+		</md-toolbar>
+		<md-list>
+			<md-list-item class="repeated-item" ng-repeat="item in blogList track by $index">
+				<md-card-content>{{item.title}}</md-card-content>
+				<span flex></span>
+				<div layout="row">
+					<md-button class="md-raised md-accent md-hue-2" ng-click="visitWebsite(item.website)">Visit Blog</md-button>
+					<md-button class="md-raised md-warn" ng-click="deleteBlog(item, $index)"><i class="material-icons">delete_forever</i></md-button>
+				</div>
+			</md-list-item>
+		</md-list>
+	</md-card>
 </div>
 
-
-
-
-<md-card flex>
+<!--
+ <md-card flex>
 	<iframe ng-src="http://www.orvis.com/fishing_report.aspx?locationid=6366" frameborder="0"></iframe>
-</md-card>
+</md-card>-->

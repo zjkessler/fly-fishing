@@ -1,11 +1,10 @@
 'use strict';
 var app = angular.module('FishApp');
 
-app.controller('ReportCtrl', ['$scope', 'ReportService', function ($scope, ReportService) {
+app.controller('ReportCtrl', ['$scope', '$sce', '$mdToast', '$window', 'ReportService', function ($scope, $sce, $mdToast, $window, ReportService) {
 
-
+	$scope.searchReport = {};
 	$scope.reportList = [];
-
 	(function () {
 		ReportService.getReport()
 			.then(function (response) {
@@ -17,19 +16,20 @@ app.controller('ReportCtrl', ['$scope', 'ReportService', function ($scope, Repor
 		console.log(report);
 		ReportService.newReport(report)
 			.then(function (response) {
-				console.log(response.data);
-				$scope.reportList.push(response.data);
+				console.log(response);
+				$scope.reportList.push(response);
+				$scope.searchReport = '';
 			});
 	};
 	$scope.removeReport = function (report, index) {
-		console.log(index);
 		ReportService.removeReport(report)
 			.then(function (response) {
-				console.log(index);
 				$scope.reportList.splice(index, 1);
 			});
 	};
-
+	$scope.visitBlog = function (url) {
+		$window.open(url);
+	};
 }]);
 
 app.service('ReportService', ['$http', function ($http) {

@@ -1,12 +1,10 @@
 'use strict';
 var app = angular.module('FishApp');
 
-app.controller('BlogCtrl', ['$scope', 'BlogService', function ($scope, BlogService) {
+app.controller('BlogCtrl', ['$scope', 'BlogService', '$window', function ($scope, BlogService, $window) {
 
 	$scope.searchResults = [];
 	$scope.blogList = [];
-	$scope.articleList = [];
-	$scope.aticleRead = [];
 
 	//search for feeds
 	$scope.searchRSS = function (query) {
@@ -44,13 +42,6 @@ app.controller('BlogCtrl', ['$scope', 'BlogService', function ($scope, BlogServi
 			});
 	};
 
-	//get individual article for display
-	//	$scope.readBlog = function(blogListing){
-	//		BlogService.getOneBlog(blogListing)
-	//		.then(function(response){
-	//
-	//		})
-	//	}
 
 	//delete individual blog from db
 	$scope.deleteBlog = function (item, index) {
@@ -59,6 +50,12 @@ app.controller('BlogCtrl', ['$scope', 'BlogService', function ($scope, BlogServi
 			.then(function (response) {
 				$scope.blogList.splice(index, 1);
 			});
+	};
+
+
+	//Visit External website
+	$scope.visitWebsite = function (url) {
+		$window.open(url);
 	};
 
 

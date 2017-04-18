@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('FishApp', ['ui.router', 'Auth', 'ui.bootstrap', 'ngMaterial', 'ngMdIcons']);
+var app = angular.module('FishApp', ['ui.router', 'Auth', 'ui.bootstrap', 'ngMaterial', 'ngMdIcons', 'ngAnimate']);
 
 app.config(['$stateProvider', '$locationProvider', '$mdThemingProvider', '$urlRouterProvider', function ($stateProvider, $locationProvider, $mdThemingProvider, $urlRouterProvider) {
 
@@ -40,6 +40,6 @@ app.config(['$stateProvider', '$locationProvider', '$mdThemingProvider', '$urlRo
 
 	$mdThemingProvider.theme('default')
 		.primaryPalette('indigo')
-		.accentPalette('blue');
+		.accentPalette('green');
 	//.dark();
 }]);

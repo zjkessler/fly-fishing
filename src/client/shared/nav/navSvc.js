@@ -4,16 +4,16 @@ var app = angular.module('FishApp');
 app.value('NavSvc', {
 	navLinks: [{
 		title: 'Blog',
-		state: 'blog'
-}, {
-		title: 'Weather',
-		state: 'weather'
+		disabled: false
 }, {
 		title: 'Reports',
-		state: 'reports'
+		disabled: false
+}, {
+		title: 'Weather',
+		disabled: true
 }, {
 		title: 'About',
-		state: 'about'
+		disabled: true
 }],
 	authLinks: [{
 			title: 'Login'

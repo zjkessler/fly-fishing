@@ -1,37 +1,30 @@
-<md-card>
+<md-card class="md-whiteframe-6dp" flex flex-gt-sm="60" flex-offset-gt-sm="20">
 
-	<md-toolbar layout-align="center center">
-		<h3>Flyfishing Reports</h3>
+	<md-toolbar layout-align="center center" class="md-toolbar-tools">
+		<h3 layout-margin>Flyfishing Reports</h3>
 	</md-toolbar>
 
-	<div layout-gt-sm="row">
-		<div flex="25">
-			<div>
-				<md-button class="" ng-click="refreshReport()">Refresh Fishing Report</md-button>
-			</div>
-			<md-list>
-				<md-list-item ng-repeat="item in reportList track by $index">
-					<div class="md-list-item-text" layout="row">
-						<md-button class="md-warn md-raised" ng-click="removeReport(item, $index)">X</md-button>
-						<p>{{item.title}}</p>
 
-					</div>
-				</md-list-item>
-			</md-list>
-		</div>
-		<div flex="80">
-			<form action="" layout-gt-sm="row">
-				<md-input-container flex-gt-sm="40">
-					<input type="text" placeholder="Title" ng-model="report.title">
-				</md-input-container>
-				<md-input-container flex-gt-sm="40">
-					<input type="text" placeholder="URL" ng-model="report.url">
-				</md-input-container>
-				<md-button flex flex-gt-sm="20" class="md-primary" ng-click="saveReport(report)">Add Report</md-button>
-			</form>
-			<h2>{{report.title}}</h2>
-			<iframe ng-src="{{report.url}}" frameborder="0"></iframe>
-		</div>
+	<div flex>
+		<form action="" layout-gt-sm="row">
+			<md-input-container flex-gt-sm="40">
+				<input type="text" placeholder="Title" ng-model="searchReport.title">
+			</md-input-container>
+			<md-input-container flex-gt-sm="40">
+				<input type="text" placeholder="URL" ng-model="searchReport.url">
+			</md-input-container>
+			<md-button flex class="md-accent md-hue-3 md-mini" ng-click="saveReport(searchReport)">Add Report</md-button>
+		</form>
+		<md-list class="md-whiteframe-2dp">
+			<md-list-item ng-repeat="item in reportList track by $index">
+				<h4>{{item.title}}</h4><span flex></span>
+				<div class="md-list-item-text" layout="row">
+					<md-button ng-click="visitBlog(item.url)" class="md-accent md-hue-3">Visit Report</md-button>
+					<md-button class="md-warn" ng-click="removeReport(item, $index)"><i class="material-icons">delete_forever</i></md-button>
+				</div>
+				<md-divide></md-divide>
+			</md-list-item>
+		</md-list>
 	</div>
 </md-card>
 

@@ -1,3 +1,12 @@
+@keyframes additem {
+	from {
+		right: -100px;
+	}
+	to {
+		left: 100px;
+	}
+}
+
 body {
 	background: url(img/fozgj2a_cw4-lukas-budimaier.jpg) no-repeat center center fixed;
 	background-size: cover;
@@ -10,4 +19,15 @@ md-content {
 
 .navbar {
 	background: white;
+}
+
+.repeated-item.ng-enter,
+.repeated-item.ng-move {
+	animation-name: additem;
+	opacity: 0;
+}
+
+.reportDeletebtn {
+	position: relative;
+	margin-top: -10px;
 }

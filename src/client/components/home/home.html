@@ -12,5 +12,13 @@
 			<li>Mongoose</li>
 		</ul>
 
+		<div layout="column" layout-margin ng-hide="UserService.isAuthenticated()">
+			<p>To access everything this sight has to offer, Please Login or Signup below</p>
+			<div layout-gt-sm="row">
+				<md-button flex="50" class="md-raised md-primary" ui-sref="Login">Login</md-button>
+				<md-button flex="50" class="md-raised md-primary" ui-sref="Signup">Signup</md-button>
+			</div>
+		</div>
+
 	</div>
 </md-card>
