@@ -57,6 +57,10 @@ app.controller('BlogCtrl', ['$scope', 'BlogService', '$window', function ($scope
 	$scope.visitWebsite = function (url) {
 		$window.open(url);
 	};
+	//clear search area
+	$scope.clearSearch = function () {
+		$scope.searchResults = [];
+	};
 
 
 			}]);
