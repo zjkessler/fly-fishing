@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 app.use(logger('dev'));
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.database, function (err) { //add URI with || in front of config.database
+mongoose.connect(uri || config.database, function (err) {
 	if (err) {
 		throw err;
 	}
