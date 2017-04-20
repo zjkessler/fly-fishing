@@ -30,7 +30,6 @@ app.use('/api', expressJwt({
 
 app.use('/api/search/', require('./routes/searchRoutes'));
 app.use('/api/read/', require('./routes/readRoutes'));
-app.use('/scrape/', require('./scrape'));
 app.use('/api/profile', require('./routes/profileRoutes'));
 app.use('/api/report', require('./routes/reportRoutes'));
 app.use('/auth', require('./routes/authRoutes'));
