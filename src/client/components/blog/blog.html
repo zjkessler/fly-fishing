@@ -2,7 +2,7 @@
 
 	<div flex="50">
 		<md-card class="md-whiteframe-4dp md-margin">
-			<md-toolbar class="md-padding">
+			<md-toolbar class="md-padding md-whiteframe-6dp">
 				<h4 class="md-toolbar-tools">Search for Blogs</h4>
 			</md-toolbar>
 
@@ -19,7 +19,7 @@
 
 
 		<md-card ng-if="searchResults.length" class="md-whiteframe-4dp md-margin">
-			<md-toolbar class="md-padding">
+			<md-toolbar class="md-padding md-whiteframe-6dp">
 				<h4 class="md-toolbar-tools">Search Results</h4>
 			</md-toolbar>
 			<md-list ng-repeat="item in searchResults">
@@ -37,17 +37,18 @@
 
 	</div>
 	<md-card ng-if="blogList.length" flex="50" class="md-whiteframe-4dp md-margin">
-		<md-toolbar class="md-padding">
+		<md-toolbar class="md-padding md-whiteframe-6dp">
 			<h4 class="md-toolbar-tools">Blog List</h4>
 		</md-toolbar>
 		<md-list>
-			<md-list-item class="repeated-item" ng-repeat="item in blogList track by $index">
+			<md-list-item class="fade" ng-repeat="item in blogList track by $index">
 				<md-card-content>{{item.title}}</md-card-content>
 				<span flex></span>
 				<div layout="row">
 					<md-button class="md-raised md-accent md-hue-2" ng-click="visitWebsite(item.website)">Visit Blog</md-button>
 					<md-button class="md-raised md-warn" ng-click="deleteBlog(item, $index)"><i class="material-icons">delete_forever</i></md-button>
 				</div>
+				<md-divider></md-divider>
 			</md-list-item>
 		</md-list>
 	</md-card>

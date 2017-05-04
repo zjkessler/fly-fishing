@@ -2,7 +2,7 @@
 <html lang="en" ng-app="FishApp">
 
 <head>
-	<meta charset="UTF-8">
+	<meta charset="UTF-8" name="viewport" content="width=device-width">
 	<title>The FlyBox</title>
 	<base href="/">
 
@@ -26,9 +26,12 @@
 
 
 	<navbar></navbar>
-	<div ui-view></div>
 
+	<md-content>
 
+		<div ui-view class="slide"></div>
+
+	</md-content>
 
 	<!-- bower:js -->
 	<script src="bower_components/jquery/dist/jquery.js"></script>
@@ -52,15 +55,15 @@
 	<script src="app.js"></script>
 	<script src="components/about/aboutCtrl.js"></script>
 	<script src="components/auth/auth.js"></script>
+	<script src="components/blog/blogCtrl.js"></script>
 	<script src="components/profile/profileCtrl.js"></script>
 	<script src="components/report/reportCtrl.js"></script>
 	<script src="components/weather/weatherCtrl.js"></script>
 	<script src="shared/nav/navCtrl.js"></script>
 	<script src="shared/nav/navSvc.js"></script>
-	<script src="components/blog/blogCtrl.js"></script>
 	<script src="components/auth/login/login.js"></script>
-	<script src="components/auth/signup/signup.js"></script>
 	<script src="components/auth/logout/logout.js"></script>
+	<script src="components/auth/signup/signup.js"></script>
 	<!-- endinject -->
 
 

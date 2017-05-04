@@ -16,7 +16,7 @@
 			<md-button flex class="md-accent md-hue-3 md-mini" ng-click="saveReport(searchReport)">Add Report</md-button>
 		</form>
 		<md-list class="md-whiteframe-2dp">
-			<md-list-item ng-repeat="item in reportList track by $index">
+			<md-list-item class="fade" ng-repeat="item in reportList track by $index">
 				<h4>{{item.title}}</h4><span flex></span>
 				<div class="md-list-item-text" layout="row">
 					<md-button ng-click="visitBlog(item.url)" class="md-accent md-hue-3">Visit Report</md-button>

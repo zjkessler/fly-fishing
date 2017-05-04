@@ -1,33 +1,52 @@
 @keyframes additem {
 	from {
-		right: -100px;
+		right: -200px;
 	}
 	to {
-		left: 100px;
+		left: 200px;
 	}
 }
 
-body {
-	background: url(img/fozgj2a_cw4-lukas-budimaier.jpg) no-repeat center center fixed;
-	background-size: cover;
+@keyframes appear {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes disappear {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
 }
 
 md-content {
-	background: transparent !important;
-	height: 100%;
+	background: url(img/fozgj2a_cw4-lukas-budimaier.jpg) no-repeat center center fixed;
+	background-size: cover;
 }
 
 .navbar {
 	background: white;
 }
 
-.repeated-item.ng-enter,
-.repeated-item.ng-move {
-	animation-name: additem;
-	opacity: 0;
-}
-
 .reportDeletebtn {
 	position: relative;
 	margin-top: -10px;
+}
+
+.fade.ng-enter {
+	animation-name: 2s appear;
+}
+
+.fade.ng-leave {
+	animation-name: 1s disappear
+}
+
+.shade:hover {
+	opacity: .9;
 }

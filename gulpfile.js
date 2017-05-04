@@ -113,7 +113,7 @@ gulp.task('nodemon', function (cb) {
 });
 
 
-gulp.task('build', ['serve'], function () {
+gulp.task('default', ['serve'], function () {
 	gulp.watch([config.js, '**/*.html'], bs.reload);
 });
 ////////////////
